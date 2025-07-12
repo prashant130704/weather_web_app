@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #2d3436;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#locationInput {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+    min-width: 200px;
+}
+
+#locationInput:focus {
+    border-color: #74b9ff;
+}
+
+button {
+    padding: 12px 20px;
+    background: #74b9ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+button:hover {
+    background: #0984e3;
+}
+
+#currentLocationBtn {
+    background: #00b894;
+}
+
+#currentLocationBtn:hover {
+    background: #00a085;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.loading {
+    background: #74b9ff;
+    color: white;
+}
+
+.error {
+    background: #ff7675;
+    color: white;
+}
+
+.weather-display {
+    display: none;
+}
+
+.location-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.location-info h2 {
+    color: #2d3436;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+.location-info p {
+    color: #636e72;
+    font-size: 1em;
+}
+
+.main-weather {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(116, 185, 255, 0.1);
+    border-radius: 15px;
+}
+
+.temperature {
+    font-size: 3em;
+    color: #2d3436;
+    font-weight: 300;
+}
+
+.weather-icon img {
+    width: 80px;
+    height: 80px;
+}
+
+.weather-description {
+    text-align: center;
+}
+
+.weather-description p {
+    color: #636e72;
+    font-size: 1.2em;
+    text-transform: capitalize;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-item {
+    background: rgba(116, 185, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-item .label {
+    color: #636e72;
+    font-weight: 500;
+}
+
+.sun-times {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(255, 193, 7, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.sun-item {
+    text-align: center;
+}
+
+.sun-item .label {
+    display: block;
+    color: #636e72;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.sun-item span:last-child {
+    color: #2d3436;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .search-section {
+        flex-direction: column;
+    }
+    
+    #locationInput {
+        min-width: 100%;
+    }
+    
+    .main-weather {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .temperature {
+        font-size: 2.5em;
+    }
+    
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .sun-times {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Animation for weather display */
+.weather-display {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
